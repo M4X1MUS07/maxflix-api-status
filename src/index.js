@@ -41,6 +41,12 @@ mongoose
     });
     console.log("API status checker started.");
 
+    app.get("/", async (req, res) => {
+      res.json({
+        message: "Status checker is working as expected.",
+      });
+    });
+
     app.get("/api/status", async (req, res) => {
       try {
         const apiStatuses = await ApiStatus.find({});
