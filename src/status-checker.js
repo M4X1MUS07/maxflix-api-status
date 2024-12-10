@@ -34,6 +34,7 @@ export async function checkApiStatus() {
                 routeName: route.name,
                 working: response.status === 200,
                 lastUpdated: new Date(),
+                error: "No error, functional!"
             });
         } catch (err) {
             const isTimeoutError = err.code === "ECONNABORTED";
