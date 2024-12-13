@@ -18,7 +18,7 @@ const routes = [
     { name: "RSMX", url: "/rsmx/scrape", params: { type: "movie", tmdbId: "299534" } },
     { name: "IUMX", url: "/iumx/scrape", params: { type: "movie", tmdbId: "299534" } },
     { name: "CFMX", url: "/cfmx/scrape", params: { type: "movie", tmdbId: "299534", title: "avengers endgame", releaseYear: 2019 } },
-    { name: "AFMX", url: "/afmx/scrape", params: { type: "movie", tmdbId: "299534", title: "avengers endgame", releaseYear: 2019 } },
+    { name: "AFMX", url: "/afmx/scrape", params: { type: "movie", tmdbId: "299534", title: "Avengers: Endgame", releaseYear: 2019 } },
     { name: "TASF", url: "/tasf/scrape", params: { type: "movie", tmdbId: "299534" } },
     { name: "ESMX", url: "/esmx/scrape", params: { type: "movie", tmdbId: "299534" } },
     { name: "AEMX", url: "/aemx/scrape", params: { type: "movie", tmdbId: "299534" } },
@@ -34,7 +34,7 @@ export async function checkApiStatus() {
                 routeName: route.name,
                 working: response.status === 200,
                 lastUpdated: new Date(),
-                error: "No error, functional!"
+                error: "No error."
             });
         } catch (err) {
             const isTimeoutError = err.code === "ECONNABORTED";
