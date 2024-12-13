@@ -1,5 +1,4 @@
 import express from "express";
-import cron from "node-cron";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { checkApiStatus, saveApiStatus } from "./status-checker.js";
@@ -30,16 +29,7 @@ mongoose
       await ApiStatus.createCollection();
     }
 
-    console.log("Running initial API status check...");
-    const initialApiStatuses = await checkApiStatus();
-    await saveApiStatus(initialApiStatuses);
-
-    cron.schedule("0 * * * *", async () => {
-      console.log("Checking API status...");
-      const apiStatuses = await checkApiStatus();
-      await saveApiStatus(apiStatuses);
-    });
-    console.log("API status checker started.");
+    console.log("Application initialized successfully.");
 
     app.get("/", async (req, res) => {
       res.json({
@@ -54,6 +44,18 @@ mongoose
       } catch (err) {
         console.error("Error fetching API status:", err);
         res.status(500).json({ error: "Failed to fetch API status" });
+      }
+    });
+
+    app.get("/api/save", async (req, res) => {
+      try {
+        console.log("Saving API statuses...");
+        const apiStatuses = await checkApiStatus();
+        await saveApiStatus(apiStatuses);
+        res.json({ message: "API statuses saved successfully!" });
+      } catch (err) {
+        console.error("Error saving API statuses:", err);
+        res.status(500).json({ error: "Failed to save API statuses" });
       }
     });
 
