@@ -15,6 +15,7 @@ const baseURL = process.env.API_URL;
 // episode must be a string
 
 const routes = [
+    { name: "SPMX", url: "/spmx/scrape", params: { type: "movie", tmdbId: "299534" } },
     { name: "TEMX (Movies only)", url: "/temx/scrape", params: { type: "movie", tmdbId: "299534" } },
     { name: "RSMX", url: "/rsmx/scrape", params: { type: "movie", tmdbId: "299534" } },
     { name: "AFMX", url: "/afmx/scrape", params: { type: "movie", tmdbId: "299534", title: "Avengers: Endgame", releaseYear: 2019 } },
