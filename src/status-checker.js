@@ -16,12 +16,12 @@ const baseURL = process.env.API_URL;
 
 const routes = [
     { name: "RSMX", url: "/rsmx/scrape", params: { type: "movie", tmdbId: "299534" } },
+    { name: "IUMX", url: "/tasf/scrape", params: { type: "movie", tmdbId: "299534" } },
     { name: "TEMX (Movies only)", url: "/temx/scrape", params: { type: "movie", tmdbId: "299534" } },
     { name: "SPMX", url: "/spmx/scrape", params: { type: "movie", tmdbId: "299534" } },
-    // { name: "AFMX", url: "/afmx/scrape", params: { type: "movie", tmdbId: "299534", title: "Avengers: Endgame", releaseYear: 2019 } },
+    { name: "AFMX", url: "/afmx/scrape", params: { type: "movie", tmdbId: "299534", title: "Avengers: Endgame", releaseYear: 2019 } },
     { name: "AEMX", url: "/aemx/scrape", params: { type: "movie", tmdbId: "299534" } },
-    { name: "CFMX", url: "/cfmx/scrape", params: { type: "movie", tmdbId: "299534", title: "avengers endgame", releaseYear: 2019 } },
-    // { name: "IUMX", url: "/iumx/scrape", params: { type: "movie", tmdbId: "299534" } },
+    // { name: "CFMX", url: "/cfmx/scrape", params: { type: "movie", tmdbId: "299534", title: "avengers endgame", releaseYear: 2019 } },
     // { name: "ESMX", url: "/esmx/scrape", params: { type: "movie", tmdbId: "299534" } },
 ];
 
