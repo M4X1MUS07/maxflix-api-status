@@ -15,55 +15,76 @@ const baseURL = process.env.API_URL;
 // episode must be a string
 
 const routes = [
-    { name: "RSMX", url: "/rsmx/scrape", params: { type: "movie", tmdbId: "299534" } },
-    // { name: "TEMX (Movies only)", url: "/temx/scrape", params: { type: "movie", tmdbId: "299534" } },
-    { name: "SPMX", url: "/spmx/scrape", params: { type: "movie", tmdbId: "299534" } },
-    // { name: "AFMX", url: "/afmx/scrape", params: { type: "movie", tmdbId: "299534", title: "Avengers: Endgame", releaseYear: 2019 } },
-    { name: "AEMX", url: "/aemx/scrape", params: { type: "movie", tmdbId: "299534" } },
-    // { name: "CFMX", url: "/cfmx/scrape", params: { type: "movie", tmdbId: "299534", title: "avengers endgame", releaseYear: 2019 } },
-    // { name: "ESMX", url: "/esmx/scrape", params: { type: "movie", tmdbId: "299534" } },
+  {
+    name: "CFMX",
+    url: "/cfmx/scrape",
+    params: { type: "movie", tmdbId: "299534", title: "avengers endgame" },
+  },
+  {
+    name: "RSMX",
+    url: "/rsmx/scrape",
+    params: { type: "movie", tmdbId: "299534" },
+  },
+  // { name: "TEMX (Movies only)", url: "/temx/scrape", params: { type: "movie", tmdbId: "299534" } },
+  {
+    name: "SPMX",
+    url: "/spmx/scrape",
+    params: { type: "movie", tmdbId: "299534" },
+  },
+  // { name: "AFMX", url: "/afmx/scrape", params: { type: "movie", tmdbId: "299534", title: "Avengers: Endgame", releaseYear: 2019 } },
+  {
+    name: "AEMX",
+    url: "/aemx/scrape",
+    params: { type: "movie", tmdbId: "299534" },
+  },
+  // { name: "ESMX", url: "/esmx/scrape", params: { type: "movie", tmdbId: "299534" } },
 ];
 
 export async function checkApiStatus() {
-    const apiStatuses = [];
-    const timeout = 20000; // 20 seconds
-    for (const route of routes) {
-        try {
-            const response = await axios.get(`${baseURL}${route.url}`, { params: route.params, timeout: timeout });
-            apiStatuses.push({
-                routeName: route.name,
-                working: response.status === 200,
-                lastUpdated: new Date(),
-                error: "No error."
-            });
-        } catch (err) {
-            const isTimeoutError = err.code === "ECONNABORTED";
-            let errorMessage = isTimeoutError ? "Request timed out when fetching status!" : err.message;
-            
-            if (err.response && err.response.data && err.response.data.error) {
-                errorMessage = err.response.data.error;
-            } else if (err.response && err.response.data) {
-                errorMessage = JSON.stringify(err.response.data);
-            }
-            
-            apiStatuses.push({
-                routeName: route.name,
-                working: false,
-                lastUpdated: new Date(),
-                error: errorMessage,
-            })
-        }
-    }
+  const apiStatuses = [];
+  const timeout = 20000; // 20 seconds
+  for (const route of routes) {
+    try {
+      const response = await axios.get(`${baseURL}${route.url}`, {
+        params: route.params,
+        timeout: timeout,
+      });
+      apiStatuses.push({
+        routeName: route.name,
+        working: response.status === 200,
+        lastUpdated: new Date(),
+        error: "No error.",
+      });
+    } catch (err) {
+      const isTimeoutError = err.code === "ECONNABORTED";
+      let errorMessage = isTimeoutError
+        ? "Request timed out when fetching status!"
+        : err.message;
 
-    return apiStatuses;
-};
+      if (err.response && err.response.data && err.response.data.error) {
+        errorMessage = err.response.data.error;
+      } else if (err.response && err.response.data) {
+        errorMessage = JSON.stringify(err.response.data);
+      }
+
+      apiStatuses.push({
+        routeName: route.name,
+        working: false,
+        lastUpdated: new Date(),
+        error: errorMessage,
+      });
+    }
+  }
+
+  return apiStatuses;
+}
 
 export async function saveApiStatus(apiStatuses) {
-    try {
-        await ApiStatus.deleteMany({});
-        await ApiStatus.insertMany(apiStatuses);
-        console.log("API status saved successfully!");
-    } catch (err) {
-        console.error("Error saving API status:", err);
-    }
+  try {
+    await ApiStatus.deleteMany({});
+    await ApiStatus.insertMany(apiStatuses);
+    console.log("API status saved successfully!");
+  } catch (err) {
+    console.error("Error saving API status:", err);
+  }
 }
