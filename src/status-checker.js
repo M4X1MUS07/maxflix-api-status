@@ -31,8 +31,8 @@ const routes = [
     params: { type: "movie", tmdbId: "299534" },
   },
   {
-    name: "RSMX",
-    url: "/rsmx/scrape",
+    name: "AEMX",
+    url: "/aemx/scrape",
     params: { type: "movie", tmdbId: "299534" },
   },
   {
