@@ -31,8 +31,18 @@ const routes = [
     params: { type: "movie", tmdbId: "299534" },
   },
   {
-    name: "AEMX",
-    url: "/aemx/scrape",
+    name: "EEMX",
+    url: "/eemx/scrape",
+    params: {
+      type: "movie",
+      tmdbId: "299534",
+      title: "Avengers: Endgame",
+      releaseYear: 2019,
+    },
+  },
+  {
+    name: "VVMX",
+    url: "/vvmx/scrape",
     params: { type: "movie", tmdbId: "299534" },
   },
   {
@@ -40,12 +50,6 @@ const routes = [
     url: "/spmx/scrape",
     params: { type: "movie", tmdbId: "299534" },
   },
-  // { name: "AFMX", url: "/afmx/scrape", params: { type: "movie", tmdbId: "299534", title: "Avengers: Endgame", releaseYear: 2019 } },
-  // {
-  //   name: "AEMX",
-  //   url: "/aemx/scrape",
-  //   params: { type: "movie", tmdbId: "299534" },
-  // },
 ];
 
 export async function checkApiStatus() {
