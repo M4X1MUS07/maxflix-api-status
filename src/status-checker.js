@@ -16,6 +16,11 @@ const baseURL = process.env.API_URL;
 
 const routes = [
   {
+    name: "VIP",
+    url: "/vip/scrape",
+    params: { type: "movie", tmdbId: "299534" },
+  },
+  {
     name: "CFMX",
     url: "/cfmx/scrape",
     params: { type: "movie", tmdbId: "299534", title: "avengers endgame" },
