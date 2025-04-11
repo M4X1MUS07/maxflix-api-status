@@ -23,7 +23,13 @@ const routes = [
   {
     name: "CFMX",
     url: "/cfmx/scrape",
-    params: { type: "movie", tmdbId: "299534", title: "avengers endgame" },
+    params: {
+      type: "show",
+      tmdbId: "66732",
+      title: "stranger things",
+      season: "1",
+      episode: "1",
+    },
   },
   {
     name: "ESMX",
