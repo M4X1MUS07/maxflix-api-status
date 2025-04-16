@@ -21,6 +21,11 @@ const routes = [
     params: { type: "movie", tmdbId: "299534" },
   },
   {
+    name: "VIP2",
+    url: "/vip2/scrape",
+    params: { type: "movie", tmdbId: "299534" },
+  },
+  {
     name: "CFMX",
     url: "/cfmx/scrape",
     params: {
@@ -32,24 +37,9 @@ const routes = [
     },
   },
   {
-    name: "ESMX",
-    url: "/esmx/scrape",
-    params: { type: "movie", tmdbId: "299534" },
-  },
-  {
     name: "HDMX",
     url: "/hdmx/scrape",
     params: { type: "movie", tmdbId: "299534" },
-  },
-  {
-    name: "EEMX",
-    url: "/eemx/scrape",
-    params: {
-      type: "movie",
-      tmdbId: "299534",
-      title: "Avengers: Endgame",
-      releaseYear: 2019,
-    },
   },
   {
     name: "VVMX",
