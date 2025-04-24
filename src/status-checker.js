@@ -16,13 +16,13 @@ const baseURL = process.env.API_URL;
 
 const routes = [
   {
-    name: "VIP",
-    url: "/vip/scrape",
+    name: "VIP1",
+    url: "/vip1/scrape",
     params: { type: "movie", tmdbId: "299534" },
   },
   {
-    name: "VIP2",
-    url: "/vip2/scrape",
+    name: "HDMX",
+    url: "/hdmx/scrape",
     params: { type: "movie", tmdbId: "299534" },
   },
   {
@@ -37,8 +37,13 @@ const routes = [
     },
   },
   {
-    name: "HDMX",
-    url: "/hdmx/scrape",
+    name: "VIP2",
+    url: "/vip2/scrape",
+    params: { type: "movie", tmdbId: "299534" },
+  },
+  {
+    name: "VIP3",
+    url: "/vip3/scrape",
     params: { type: "movie", tmdbId: "299534" },
   },
   {
