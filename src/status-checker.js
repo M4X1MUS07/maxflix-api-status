@@ -36,16 +36,16 @@ const routes = [
       episode: "1",
     },
   },
-  {
-    name: "VIP2",
-    url: "/vip2/scrape",
-    params: { type: "movie", tmdbId: "299534" },
-  },
-  {
-    name: "VIP3",
-    url: "/vip3/scrape",
-    params: { type: "movie", tmdbId: "299534" },
-  },
+  // {
+  //   name: "VIP2",
+  //   url: "/vip2/scrape",
+  //   params: { type: "movie", tmdbId: "299534" },
+  // },
+  // {
+  //   name: "VIP3",
+  //   url: "/vip3/scrape",
+  //   params: { type: "movie", tmdbId: "299534" },
+  // },
   {
     name: "VVMX",
     url: "/vvmx/scrape",
