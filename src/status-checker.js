@@ -30,8 +30,8 @@ const routes = [
     url: "/cfmx/scrape",
     params: {
       type: "show",
-      tmdbId: "66732",
-      title: "stranger things",
+      tmdbId: "108978",
+      title: "Reacher",
       season: "1",
       episode: "1",
     },
